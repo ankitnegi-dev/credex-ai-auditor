@@ -6,7 +6,7 @@ Implement the AI Spend Auditor as a Next.js 16 (App Router) web application. The
 
 ## Tasks
 
-- [ ] 1. Set up project dependencies, shared types, and test infrastructure
+- [x] 1. Set up project dependencies, shared types, and test infrastructure
   - Install runtime dependencies: `@supabase/supabase-js`, `@anthropic-ai/sdk`, `resend`, `zod`
   - Install dev dependencies: `vitest`, `@vitest/coverage-v8`, `fast-check`, `@vitejs/plugin-react`
   - Create `vitest.config.ts` at the project root configured for the Next.js environment
@@ -15,57 +15,57 @@ Implement the AI Spend Auditor as a Next.js 16 (App Router) web application. The
   - Create `__tests__/` directory structure: `unit/`, `integration/`
   - _Requirements: 3.1, 7.4_
 
-- [ ] 2. Implement the Pricing Catalog and its property tests
-  - [~] 2.1 Create `lib/pricing-catalog.ts` with the full `PRICING_CATALOG` constant for all 15 tools
+- [x] 2. Implement the Pricing Catalog and its property tests
+  - [x] 2.1 Create `lib/pricing-catalog.ts` with the full `PRICING_CATALOG` constant for all 15 tools
     - Keys must exactly match the tool name strings from Requirement 1.2 (case-sensitive)
     - Each tool must have at least one `PlanTier` with `pricePerSeat >= 0` and `minSeats >= 1`
     - Plan tier names must be unique within each tool
     - _Requirements: 1.2, 7.1, 7.2, 7.3, 7.4, 7.6_
 
-  - [~] 2.2 Write property tests for Pricing Catalog structural invariants
+  - [x] 2.2 Write property tests for Pricing Catalog structural invariants
     - **Property 6: Pricing Catalog structural invariants**
     - **Validates: Requirements 7.2, 7.3, 7.6**
     - File: `__tests__/unit/pricing-catalog.test.ts`
     - Assert every tool has ≥ 1 plan, every plan has `pricePerSeat >= 0` and `minSeats >= 1`, and plan names are unique per tool
 
-  - [~] 2.3 Write property test for catalog idempotency
+  - [x] 2.3 Write property test for catalog idempotency
     - **Property 7: Catalog reads are idempotent**
     - **Validates: Requirements 7.5**
     - File: `__tests__/unit/pricing-catalog.test.ts`
     - Use `fc.constantFrom(...Object.keys(PRICING_CATALOG))` and `fc.integer({ min: 1, max: 1000 })` to assert two calls with the same args return the same plan
 
 - [ ] 3. Implement the Audit Engine and its property tests
-  - [~] 3.1 Create `lib/audit-engine.ts` with `selectOptimizedPlan`, `computeToolSavings`, and `compute`
+  - [x] 3.1 Create `lib/audit-engine.ts` with `selectOptimizedPlan`, `computeToolSavings`, and `compute`
     - `selectOptimizedPlan`: filter eligible plans by `minSeats <= seats`; if none, fall back to highest `minSeats`; among cheapest eligible, pick highest `minSeats` for tie-breaking
     - `computeToolSavings`: `optimizedMonthlyCost = round(pricePerSeat * seats, 2)`; `savings = max(0, round(userMonthlyCost - optimizedMonthlyCost, 2))`
     - `compute`: iterate entries, look up catalog, handle unknown tools (savings = 0), aggregate totals with `Math.round(value * 100) / 100`
     - _Requirements: 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9_
 
-  - [~] 3.2 Write property test for optimized plan selection
+  - [-] 3.2 Write property test for optimized plan selection
     - **Property 1: Optimized plan satisfies seat count and minimizes cost**
     - **Validates: Requirements 2.2**
     - File: `__tests__/unit/audit-engine.test.ts`
     - Use `fc.constantFrom(...Object.keys(PRICING_CATALOG))` and `fc.integer({ min: 1, max: 1000 })`; assert selected plan is cheapest eligible with tie-breaking by highest `minSeats`
 
-  - [~] 3.3 Write property test for savings computation
+  - [-] 3.3 Write property test for savings computation
     - **Property 2: Savings are non-negative and correctly computed**
     - **Validates: Requirements 2.3, 2.4**
     - File: `__tests__/unit/audit-engine.test.ts`
     - Use arbitrary `ToolEntry` with valid catalog tool; assert `savings === max(0, round(userMonthlyCost - optimizedPlan.pricePerSeat * seats, 2))`
 
-  - [~] 3.4 Write property test for audit totals consistency
+  - [-] 3.4 Write property test for audit totals consistency
     - **Property 3: Audit totals are consistent with per-tool results**
     - **Validates: Requirements 2.5, 2.6, 2.7**
     - File: `__tests__/unit/audit-engine.test.ts`
     - Use `fc.array(fc.record({...}), { minLength: 1, maxLength: 15 })`; assert `totalSpend`, `totalOptimizedSpend`, and `totalSavings` equal the rounded sums of per-tool values
 
-  - [~] 3.5 Write property test for unknown tool handling
+  - [-] 3.5 Write property test for unknown tool handling
     - **Property 4: Unknown tool produces zero savings**
     - **Validates: Requirements 2.8**
     - File: `__tests__/unit/audit-engine.test.ts`
     - Use `fc.string()` filtered to exclude catalog keys; assert `savings === 0` and `optimizedPlanName === entry.planType`
 
-  - [~] 3.6 Write property test for seat count exceeding all thresholds
+  - [-] 3.6 Write property test for seat count exceeding all thresholds
     - **Property 5: Seat count exceeding all plan thresholds produces zero savings**
     - **Validates: Requirements 2.9**
     - File: `__tests__/unit/audit-engine.test.ts`
@@ -75,13 +75,13 @@ Implement the AI Spend Auditor as a Next.js 16 (App Router) web application. The
   - Run `npx vitest run __tests__/unit/` and confirm all tests pass before proceeding.
 
 - [ ] 5. Implement Zod validation schemas and their property test
-  - [~] 5.1 Create `lib/validations.ts` with Zod schemas for the audit form and email route
+  - [x] 5.1 Create `lib/validations.ts` with Zod schemas for the audit form and email route
     - `toolEntrySchema`: `toolName` non-empty string, `planType` non-empty string, `seats` integer >= 1, `monthlyCost` number >= 0
     - `auditRequestSchema`: `entries` array, min 1, max 15, each item validated by `toolEntrySchema`
     - `emailRequestSchema`: `auditId` UUID v4 format, `email` RFC 5322 via `z.string().email()`
     - _Requirements: 1.7, 1.8, 1.9, 1.10, 6.7_
 
-  - [~] 5.2 Write property test for form validation rejection
+  - [-] 5.2 Write property test for form validation rejection
     - **Property 8: Form validation rejects invalid entries universally**
     - **Validates: Requirements 1.7, 1.8, 1.9, 1.10**
     - File: `__tests__/unit/validations.test.ts`
