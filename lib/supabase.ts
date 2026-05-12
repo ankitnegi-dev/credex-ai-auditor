@@ -5,9 +5,11 @@ const supabaseUrl = process.env.SUPABASE_URL!;
 const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
 
 // Server-side singleton — never expose to the browser
-let _client: ReturnType<typeof createClient> | null = null;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let _client: ReturnType<typeof createClient<any>> | null = null;
 
-function getClient() {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function getClient(): ReturnType<typeof createClient<any>> {
   if (!_client) {
     _client = createClient(supabaseUrl, supabaseServiceRoleKey, {
       auth: { persistSession: false },
