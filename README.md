@@ -10,15 +10,13 @@ SpendLens is a free web tool for startup founders and engineering managers to au
 
 ## Screenshots
 
-> Home page — audit input form
+**Home page - audit input form**
 
-![SpendLens Home](https://spendlens-ai-auditor.vercel.app/og-home.png)
+![SpendLens Home Page](public/screenshot-home.png)
 
-> Report page — savings breakdown with AI summary
+**Report page - savings breakdown with AI summary**
 
-![SpendLens Report](https://spendlens-ai-auditor.vercel.app/og-report.png)
-
-*(Screenshots available at the live URL above)*
+![SpendLens Report Page](public/screenshot-report.png)
 
 ---
 
