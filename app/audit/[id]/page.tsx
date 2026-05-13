@@ -37,11 +37,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
     const savingsFormatted = formatUSD(audit.total_savings);
     return {
-      title: `Save ${savingsFormatted}/month on AI tools — SpendLens`,
+      title: `Save ${savingsFormatted}/month on AI tools - SpendLens`,
       description: `This SpendLens audit found ${savingsFormatted} in potential monthly savings on AI tool subscriptions.`,
       alternates: { canonical: canonicalUrl },
       openGraph: {
-        title: `Save ${savingsFormatted}/month on AI tools — SpendLens`,
+        title: `Save ${savingsFormatted}/month on AI tools - SpendLens`,
         description: `This SpendLens audit found ${savingsFormatted} in potential monthly savings. View the full breakdown.`,
         url: canonicalUrl,
         type: 'website',
@@ -56,7 +56,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function AuditReportPage({ params }: PageProps) {
-  // Next.js 16: params is a Promise — must be awaited
+  // Next.js 16: params is a Promise - must be awaited
   const { id } = await params;
 
   const audit = await getAuditById(id);
