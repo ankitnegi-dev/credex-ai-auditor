@@ -9,7 +9,7 @@ export default function HomePage() {
           <h1 className="text-4xl font-bold text-gray-900 mb-3">AI Spend Auditor</h1>
           <p className="text-lg text-gray-600 max-w-xl mx-auto">
             Find out how much you could save on your AI tool subscriptions. Enter your current
-            tools, plans, and costs — we'll show you the cheapest viable options.
+            tools, plans, and costs — we&apos;ll show you the cheapest viable options.
           </p>
         </div>
 

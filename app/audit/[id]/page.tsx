@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import Link from 'next/link';
 import type { Metadata } from 'next';
 import { getAuditById } from '@/lib/supabase';
 import { ReportMetrics } from '@/components/report-metrics';
@@ -132,9 +133,9 @@ export default async function AuditReportPage({ params }: PageProps) {
 
         {/* Back link */}
         <div className="text-center">
-          <a href="/" className="text-sm text-blue-600 hover:underline">
+          <Link href="/" className="text-sm text-blue-600 hover:underline">
             ← Run another audit
-          </a>
+          </Link>
         </div>
       </div>
     </main>

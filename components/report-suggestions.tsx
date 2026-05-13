@@ -11,7 +11,7 @@ export function ReportSuggestions({ toolResults }: ReportSuggestionsProps) {
     return (
       <div className="p-6 bg-gray-50 border border-gray-200 rounded-xl">
         <p className="text-gray-600">
-          You're already on optimal plans for all your tools. Great job!
+          You&apos;re already on optimal plans for all your tools. Great job!
         </p>
       </div>
     );

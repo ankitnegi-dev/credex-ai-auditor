@@ -9,7 +9,7 @@ export default function AuditNotFound() {
         </div>
         <h1 className="text-2xl font-bold text-gray-900 mb-2">Audit Not Found</h1>
         <p className="text-gray-600 mb-6">
-          We couldn't find an audit with that ID. It may have been deleted or the link may be
+          We could not find an audit with that ID. It may have been deleted or the link may be
           incorrect.
         </p>
         <Link
