@@ -37,12 +37,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
     const savingsFormatted = formatUSD(audit.total_savings);
     return {
-      title: `Save ${savingsFormatted}/month on AI tools — AI Spend Auditor`,
-      description: `This audit found ${savingsFormatted} in potential monthly savings on AI tool subscriptions.`,
+      title: `Save ${savingsFormatted}/month on AI tools — SpendLens`,
+      description: `This SpendLens audit found ${savingsFormatted} in potential monthly savings on AI tool subscriptions.`,
       alternates: { canonical: canonicalUrl },
       openGraph: {
-        title: `Save ${savingsFormatted}/month on AI tools`,
-        description: `This audit found ${savingsFormatted} in potential monthly savings on AI tool subscriptions. View the full breakdown.`,
+        title: `Save ${savingsFormatted}/month on AI tools — SpendLens`,
+        description: `This SpendLens audit found ${savingsFormatted} in potential monthly savings. View the full breakdown.`,
         url: canonicalUrl,
         type: 'website',
       },
@@ -74,7 +74,7 @@ export default async function AuditReportPage({ params }: PageProps) {
         {/* Header */}
         <div className="flex items-start justify-between gap-4 flex-wrap">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Your AI Spend Audit</h1>
+            <h1 className="text-3xl font-bold text-gray-900">SpendLens Audit Report</h1>
             <p className="text-sm text-gray-500 mt-1">
               Audit ID: <span className="font-mono">{audit.id}</span>
             </p>

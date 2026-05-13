@@ -6,10 +6,10 @@ export default function HomePage() {
       <div className="max-w-4xl mx-auto px-4 py-12">
         {/* Header */}
         <div className="text-center mb-10">
-          <h1 className="text-4xl font-bold text-gray-900 mb-3">AI Spend Auditor</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-3">SpendLens</h1>
+          <p className="text-lg text-gray-500 font-medium mb-2">AI Spend Auditor</p>
           <p className="text-lg text-gray-600 max-w-xl mx-auto">
-            Find out how much you could save on your AI tool subscriptions. Enter your current
-            tools, plans, and costs — we&apos;ll show you the cheapest viable options.
+            Find out how much your startup wastes on AI tools — free audit in 60 seconds.
           </p>
         </div>
 
