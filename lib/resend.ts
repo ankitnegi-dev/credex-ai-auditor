@@ -14,7 +14,7 @@ export async function sendAuditReport(
   reportUrl: string
 ): Promise<void> {
   const { error } = await resend.emails.send({
-    from: 'AI Spend Auditor <reports@credex.ai>',
+    from: 'AI Spend Auditor <onboarding@resend.dev>',
     to: email,
     subject: `Your AI Spend Audit — Save $${audit.total_savings.toFixed(2)}/month`,
     html: buildEmailHtml(audit, reportUrl),
