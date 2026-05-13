@@ -46,6 +46,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         url: canonicalUrl,
         type: 'website',
       },
+        url: canonicalUrl,
+        type: 'website',
+      },
     };
   } catch {
     return {
