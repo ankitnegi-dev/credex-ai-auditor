@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const audit = await getAuditById(id);
     if (!audit) {
       return {
-        title: 'Audit Not Found — AI Spend Auditor',
+        title: 'Audit Not Found - AI Spend Auditor',
         description: 'This audit could not be found.',
       };
     }
@@ -43,9 +43,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       openGraph: {
         title: `Save ${savingsFormatted}/month on AI tools — SpendLens`,
         description: `This SpendLens audit found ${savingsFormatted} in potential monthly savings. View the full breakdown.`,
-        url: canonicalUrl,
-        type: 'website',
-      },
         url: canonicalUrl,
         type: 'website',
       },
