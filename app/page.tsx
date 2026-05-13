@@ -9,7 +9,7 @@ export default function HomePage() {
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-6 uppercase tracking-wide">
             <span className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse"></span>
-            Free — No signup required
+            Free - No signup required
           </div>
           <h1 className="text-5xl font-extrabold text-gray-900 mb-3 tracking-tight">
             Spend<span className="text-blue-600">Lens</span>
@@ -17,7 +17,7 @@ export default function HomePage() {
           <p className="text-xl font-medium text-gray-500 mb-4">AI Spend Auditor</p>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
             The average startup overpays <strong className="text-gray-900">$340/month</strong> on AI subscriptions.
-            Enter your tools and see exactly where your money is going — in 60 seconds.
+            Enter your tools and see exactly where your money is going - in 60 seconds.
           </p>
 
           {/* Social proof */}
@@ -47,7 +47,7 @@ export default function HomePage() {
         <div className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
           <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-4">
             <h2 className="text-lg font-semibold text-white">Your AI Subscriptions</h2>
-            <p className="text-blue-100 text-sm mt-0.5">Add each tool you pay for — we&apos;ll find the savings</p>
+            <p className="text-blue-100 text-sm mt-0.5">Add each tool you pay for - we&apos;ll find the savings</p>
           </div>
           <div className="p-6 md:p-8">
             <AuditForm />
